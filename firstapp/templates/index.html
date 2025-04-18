@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Index Page{% endblock %}
+{% block content %}
+    <h1>Flask tutorial by Neural nine.</h1>
+    <p>{{ name }}</p>
+    <p>{{ age }}</p>
+    <p>{{ my_list }}</p>
+
+    <ul>
+        {% for item in my_list %}
+                <li {% if item == 30 %}style="color: red"{% endif %}>{{item}}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('other') }}">Other</a>
+{% endblock %}
+
+
