@@ -10,4 +10,12 @@
         <br>
         <button type="submit">Login</button>
     </form>
+
+    <h1>File Upload</h1>
+    <form method="POST" action="{{ url_for('file_upload') }}" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document, text/plain" required="required">
+        <input type="submit" value="Upload file">
+    </form>
+
+    
 {% endblock %}
