@@ -2,5 +2,29 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>This is home page</h1>
+<h1 class="text-3xl font-bold text-center mb-6">Notes</h1>
+
+<ul id="notes" class="space-y-3">
+    {% for note in user.notes %}
+    <li class="bg-white shadow-md rounded-md p-4 flex justify-between items-center">
+        <span>{{ note.data }}</span>
+        <button type="button" class="close" onClick="deleteNote({{note.id}})">
+            <span aria-hidden="true" class="text-red-500 font-bold text-xl">&times;</span>
+        </button>
+    </li>
+    {% endfor %}
+</ul>
+
+<form method="POST" class="mt-6">
+    <textarea name="note" id="note"
+        class="w-screen border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder="Write a note..."></textarea>
+    <br />
+    <div class="flex justify-center mt-4">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-md">
+            Add Note
+        </button>
+    </div>
+</form>
+
 {% endblock %}
